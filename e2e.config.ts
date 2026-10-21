@@ -3,13 +3,11 @@ import type { E2EConfig } from "e2e";
 import { web } from "@e2e-dev/web";
 import { gateway } from "ai";
 
-// e2e loads no .env file itself. Variables already set in the shell win.
+// e2e loads no .env file itself.
 const envFile = new URL(".env.local", import.meta.url);
 if (existsSync(envFile)) process.loadEnvFile(envFile);
 
-// Redacted from every report and trace. A secret shorter than 6 characters fails config load,
-// so only the ones that are set are registered. Test card numbers are not secrets: once a secret
-// is filled, e2e stops taking screenshots, and the vision checks need them.
+// A secret under 6 characters fails config load, so only set ones are registered.
 const secrets: Record<string, string> = {};
 if (process.env.STRIPE_SECRET_KEY) secrets["stripe-secret-key"] = process.env.STRIPE_SECRET_KEY;
 

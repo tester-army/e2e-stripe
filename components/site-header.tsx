@@ -3,11 +3,10 @@ import Link from "next/link";
 
 const E2E_DOCS_URL = "https://e2e.tester.army/docs";
 
-// The e2e landing's lockup: logo, a mono slash, and the name in the display font.
 export function SiteHeader() {
   return (
     <header className="px-6 pt-6 sm:px-10">
-      <div className="mx-auto flex h-9 max-w-[1200px] items-center justify-between">
+      <div className="mx-auto flex h-9 max-w-300 items-center justify-between">
         <Link href="/" aria-label="Home" className="flex items-center gap-2.5 sm:gap-3">
           <Image
             src="/e2e/logo-white.png"
