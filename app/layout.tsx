@@ -45,7 +45,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
-      <body className="e2e min-h-dvh">
+      <body className="e2e flex min-h-dvh flex-col">
         <SiteHeader />
         {children}
       </body>
